@@ -16,14 +16,63 @@
     
     NSString *emailText = [self.templateText copy];
     
+    
 //    NSString *newText = nil;
 //    
 //    
 //    newText = [infoDict objectForKey:@"playtype"];
 //    if (newText != nil)
 //    {
+    
+//    NSMutableDictionary *lookADict = [[NSMutableDictionary alloc]init];
+//    NSDictionary *attributes = @{
+//                                 NSForegroundColorAttributeName : [NSColor greenColor],
+//                                 NSFontAttributeName : [NSFont fontWithName:@"HelveticaNeue-Bold" size:20.f]
+//                                 };
+//
+//    
+//    
+//    [lookADict setObject:@"$PLAYTYPE" forKey:@"playtype"];
+//    [lookADict setObject:@"$CHALLENGETYPE" forKey:@"challengetype"];
+//    [lookADict setObject:@"$GAME" forKey:@"game"];
+//    [lookADict setObject:@"$INNING" forKey:@"inning"];
+//    [lookADict setObject:@"$OUTSBEFORE" forKey:@"outsbefore"];
+//    [lookADict setObject:@"$RUNNERSBEFORE" forKey:@"runnersbefore"];
+//    [lookADict setObject:@"$OFFENSETEAM" forKey:@"offenseteam"];
+//    [lookADict setObject:@"$OFFENSIVEPLAYER" forKey:@"offensiveplayer"];
+//    [lookADict setObject:@"$OFFENSEDOESWHAT" forKey:@"offensedoeswhat"];
+//    [lookADict setObject:@"$2OFFENSIVEPLAYER" forKey:@"offensiveplayer2"];
+//    [lookADict setObject:@"$2OFFENSEDOESWHAT" forKey:@"offensedoeswhat2"];
+//    [lookADict setObject:@"$DEFENSETEAM" forKey:@"defenseteam"];
+//    [lookADict setObject:@"$DEFENSIVEPLAYER" forKey:@"defensiveplayer"];
+//    
+//    [lookADict setObject:@"$DEFENSEDOESWHAT" forKey:@"defensedoeswhat"];
+//    [lookADict setObject:@"$2DEFENSIVEPLAYER" forKey:@"defensiveplayer2"];
+//    [lookADict setObject:@"$DEFENSEDOESWHAT2" forKey:@"defensedoeswhat2"];
+//    [lookADict setObject:@"$WHOCHALLENGED" forKey:@"whochallenged"];
+//    [lookADict setObject:@"$CALLONFIELD" forKey:@"callonfield"];
+//    [lookADict setObject:@"$PLAYLOCATION" forKey:@"playlocation"];
+//    [lookADict setObject:@"$CALLAFTER" forKey:@"callafter"];
+//    [lookADict setObject:@"$OUTCOME" forKey:@"outcome"];
+//    [lookADict setObject:@"$OUTSAFTER" forKey:@"outsafter"];
+//    [lookADict setObject:@"$RUNNERSAFTER" forKey:@"runnersafter"];
+//    
+//    
+//    for (id key in infoDict) {
+//        id value = [lookADict objectForKey:key];
+//        NSMutableAttributedString *colored = [[NSMutableAttributedString alloc] initWithString:value];
+//        [colored setAttributes:attributes range:NSMakeRange(0, 5)];
+//        emailText = colored;
+//
+//        
+//        
+//         
+//         }
+
+
+    
+
         emailText = [emailText stringByReplacingOccurrencesOfString:@"$PLAYTYPE" withString:[infoDict objectForKey:@"playtype" ]];
-//    }
  
     emailText = [emailText stringByReplacingOccurrencesOfString:@"$CHALLENGETYPE" withString:[infoDict objectForKey:@"challengetype" ]];
 
