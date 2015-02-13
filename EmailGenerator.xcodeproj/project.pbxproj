@@ -25,6 +25,7 @@
 		284D82981A880DC60033DC7C /* FairFoul.txt in Resources */ = {isa = PBXBuildFile; fileRef = 284D82971A880DC60033DC7C /* FairFoul.txt */; };
 		287A14501A8BDD6900706CA8 /* Potential713.txt in Resources */ = {isa = PBXBuildFile; fileRef = 287A144F1A8BDD6900706CA8 /* Potential713.txt */; };
 		287A147E1A8D4C8F00706CA8 /* StealAttemptUmpire in Resources */ = {isa = PBXBuildFile; fileRef = 287A147D1A8D4C8F00706CA8 /* StealAttemptUmpire */; };
+		287A14801A8EB7B900706CA8 /* EmailSubject in Resources */ = {isa = PBXBuildFile; fileRef = 287A147F1A8EB7B900706CA8 /* EmailSubject */; };
 		28F797241A85465700DA90C1 /* DictionaryForTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F797231A85465600DA90C1 /* DictionaryForTemplate.m */; };
 		28F797261A854A1E00DA90C1 /* emailTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28F797251A854A1E00DA90C1 /* emailTemplate.txt */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		284D82971A880DC60033DC7C /* FairFoul.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FairFoul.txt; sourceTree = "<group>"; };
 		287A144F1A8BDD6900706CA8 /* Potential713.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Potential713.txt; sourceTree = "<group>"; };
 		287A147D1A8D4C8F00706CA8 /* StealAttemptUmpire */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StealAttemptUmpire; sourceTree = "<group>"; };
+		287A147F1A8EB7B900706CA8 /* EmailSubject */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EmailSubject; sourceTree = "<group>"; };
 		28F797221A85465600DA90C1 /* DictionaryForTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryForTemplate.h; sourceTree = "<group>"; };
 		28F797231A85465600DA90C1 /* DictionaryForTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryForTemplate.m; sourceTree = "<group>"; };
 		28F797251A854A1E00DA90C1 /* emailTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = emailTemplate.txt; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				2809D34F1A81488F00675670 /* MainMenu.xib */,
 				2809D3461A81488F00675670 /* Supporting Files */,
 				28F797251A854A1E00DA90C1 /* emailTemplate.txt */,
+				287A147F1A8EB7B900706CA8 /* EmailSubject */,
 				287A144F1A8BDD6900706CA8 /* Potential713.txt */,
 				284D828D1A880D390033DC7C /* PotentialHomeRun.txt */,
 				284D828F1A880D630033DC7C /* StealAttempt.txt */,
@@ -263,6 +266,7 @@
 				284D82921A880D740033DC7C /* PickOffAttempt.txt in Resources */,
 				284D82941A880D970033DC7C /* HitByPitch.txt in Resources */,
 				28F797261A854A1E00DA90C1 /* emailTemplate.txt in Resources */,
+				287A14801A8EB7B900706CA8 /* EmailSubject in Resources */,
 				284D82961A880DAC0033DC7C /* CatchNoCatch.txt in Resources */,
 				287A147E1A8D4C8F00706CA8 /* StealAttemptUmpire in Resources */,
 				287A14501A8BDD6900706CA8 /* Potential713.txt in Resources */,

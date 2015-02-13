@@ -11,7 +11,10 @@
 
 @interface DictionaryForTemplate : NSObject
 -(NSString*) makeEmail:(NSDictionary*)infoDict;
+-(NSString*) makeSubject:(NSDictionary*)infoDict;
+
 
 @property (retain) NSString *templateText;
+@property (retain) NSString *emailSubjectText;
 
 @end

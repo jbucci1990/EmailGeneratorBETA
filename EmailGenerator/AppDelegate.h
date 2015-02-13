@@ -77,6 +77,7 @@
 
 
 
+@property (weak) IBOutlet NSTextField *textField;
 
 
 

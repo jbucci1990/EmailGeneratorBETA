@@ -160,11 +160,15 @@
     NSString *resourcesBasePath = [[NSBundle mainBundle] resourcePath];
 
     NSMutableString *emailTemplateString = [NSString stringWithContentsOfFile:[resourcesBasePath stringByAppendingString:@"/emailTemplate.txt"]];
+    NSMutableString *emailSubjectString = [NSString stringWithContentsOfFile:[resourcesBasePath stringByAppendingString:@"/EmailSubject.txt"]];
+
     
     //Setting up the Method for replacing strings in Templates
 
     self.dictionaryForTemplate = [DictionaryForTemplate new];
+    self.dictionaryForTemplate.emailSubjectText = emailSubjectString;
     self.dictionaryForTemplate.templateText = emailTemplateString;
+
     self.currentStateDict = [NSMutableDictionary new];
     
     
@@ -351,32 +355,9 @@
 
             [UIUtils initPopUpButton:self.callAfterReviewPopUpButton selections:self.callAfterHomeRun defaultIndex:0];
             [UIUtils initPopUpButton:self.callOnFieldPopUpButton selections:self.callAfterHomeRun defaultIndex:0];
-
-
-        }
-        if ([selectedString isEqualTo:@"Potential Home Run"]) {
-            [self enableAll];
-            
-            NSString *resourcesBasePath = [[NSBundle mainBundle] resourcePath];
-            
-            NSMutableString *emailTemplateString = [NSString stringWithContentsOfFile:[resourcesBasePath stringByAppendingString:@"/PotentialHomeRun.txt"]];
-            self.dictionaryForTemplate.templateText = emailTemplateString;
-            [self.challengeTypePopUpButton setEnabled:(NO)];
-            [self.playVariation setEnabled:(NO)];
-            [self.defenseTeamPopUpButton setEnabled:NO];
-            [self.defenseDoesWhatPopUpButton setEnabled:NO];
-            [self.defenseDoesWhat2PopUpButton setEnabled:NO];
-            [self.awayPlayerNamePopUpButton setEnabled:NO];
-            [self.awayPlayerName2PopUpButton setEnabled:NO];
-            [self.whoChallengedPopUpButton setEnabled:NO];
-            [self.homePlayerName2PopUpButton setEnabled:(NO)];
-            [self.offenseDoesWhat2PopUpButton setEnabled:(NO)];
-
-            
-            [UIUtils initPopUpButton:self.callAfterReviewPopUpButton selections:self.callAfterHomeRun defaultIndex:0];
-            [UIUtils initPopUpButton:self.callOnFieldPopUpButton selections:self.callAfterHomeRun defaultIndex:0];
-            
-            
+//            NSArray *forHomeRun = [[NSArray alloc]initWithObjects:[self.offenseDoesWhat objectAtIndex:1]];            [UIUtils initPopUpButton:self.offenseDoesWhatPopUpButton selections:forHomeRun defaultIndex:0];
+//
+//
         }
         
 
@@ -742,8 +723,12 @@
 -(void)updateOutput
 {
     NSString *emailString = [self.dictionaryForTemplate makeEmail:self.currentStateDict];
+    NSString *subjectString = [self.dictionaryForTemplate makeSubject:self.currentStateDict];
     [self.emailTextView setString:emailString];
+    [self.textField setStringValue:subjectString];
 }
+
+
 
 -(void)enableAll
 {
@@ -777,6 +762,8 @@
 
 
 }
+
+
 
 -(void)setDefaultLines
 {

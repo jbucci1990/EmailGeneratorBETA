@@ -15,7 +15,7 @@
 {
     
     NSString *emailText = [self.templateText copy];
-    
+        
     
 //    NSString *newText = nil;
 //    
@@ -61,7 +61,7 @@
 //    for (id key in infoDict) {
 //        id value = [lookADict objectForKey:key];
 //        NSMutableAttributedString *colored = [[NSMutableAttributedString alloc] initWithString:value];
-//        [colored setAttributes:attributes range:NSMakeRange(0, 5)];
+//        [colored setAttributes:attributes range:NSMakeRange(0, 2)];
 //        emailText = colored;
 //
 //        
@@ -134,5 +134,35 @@
 
     return emailText;
 }
+
+
+
+-(NSString*) makeSubject:(NSDictionary *)infoDict{
+    NSString *emailSubject = [NSString alloc];
+    emailSubject = @"Replay Review Alert - $CHALLENGETYPE - $GAME- $INNING - $PLAYTYPE at $PLAYLOCATION ruled $CALLAFTER ($OUTCOME)";
+
+   emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$CHALLENGETYPE" withString:[infoDict objectForKey:@"challengetype" ]];
+    emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$GAME" withString:[infoDict objectForKey:@"game" ]];
+    emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$INNING" withString:[infoDict objectForKey:@"inning" ]];
+    emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$PLAYTYPE" withString:[infoDict objectForKey:@"playtype" ]];
+    
+    emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$PLAYLOCATION" withString:[infoDict objectForKey:@"playlocation" ]];
+    
+    
+    emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$CALLAFTER" withString:[infoDict objectForKey:@"callafter" ]];
+    
+    emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$OUTCOME" withString:[infoDict objectForKey:@"outcome" ]];
+
+
+
+
+    return emailSubject;
+}
+
+
+
+
+
+
 
 @end

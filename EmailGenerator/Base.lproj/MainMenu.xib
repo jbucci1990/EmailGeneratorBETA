@@ -45,6 +45,7 @@
                 <outlet property="runnersOnAfterPopUpButton" destination="3gG-M1-RXS" id="2mq-jl-t5R"/>
                 <outlet property="runnersOnBeforePopUpButton" destination="rKg-D7-B5W" id="jMU-6W-s9l"/>
                 <outlet property="teamPopUpButton" destination="XBQ-Ya-4Fj" id="Tke-XK-Mka"/>
+                <outlet property="textField" destination="wXz-fr-9zo" id="xlm-Jl-j7e"/>
                 <outlet property="whoChallengedPopUpButton" destination="hY2-Pw-eKy" id="G2b-2f-7Tf"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -2177,6 +2178,22 @@
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QXs-mL-yl2">
                         <rect key="frame" x="79" y="130" width="85" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Does What? :" id="zaW-tN-sxf">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wXz-fr-9zo">
+                        <rect key="frame" x="165" y="562" width="639" height="29"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="MHJ-2B-g5w">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zu0-Tz-s3P">
+                        <rect key="frame" x="66" y="568" width="93" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Email Subject:" id="Aho-s6-ZFk">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
