@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EmailGenerator/AppDelegate.m"
-            timestampString = "445468617.247446"
+            timestampString = "445551339.205138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "704"
-            endingLineNumber = "704"
+            startingLineNumber = "748"
+            endingLineNumber = "748"
             landmarkName = "-enableAll"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EmailGenerator/AppDelegate.m"
-            timestampString = "445468617.247446"
+            timestampString = "445551339.205138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "700"
-            endingLineNumber = "700"
+            startingLineNumber = "744"
+            endingLineNumber = "744"
             landmarkName = "-updateOutput"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EmailGenerator/AppDelegate.m"
-            timestampString = "445468617.247446"
+            timestampString = "445551339.205138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "469"
-            endingLineNumber = "469"
+            startingLineNumber = "513"
+            endingLineNumber = "513"
+            landmarkName = "-popUpClicked:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EmailGenerator/AppDelegate.m"
+            timestampString = "445551121.940701"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "-popUpClicked:"
             landmarkType = "5">
          </BreakpointContent>

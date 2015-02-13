@@ -255,6 +255,11 @@
             [self.defenseDoesWhatPopUpButton setEnabled:(NO)];
             [self.defenseDoesWhat2PopUpButton setEnabled:(NO)];
             [self.awayPlayerName2PopUpButton setEnabled:(NO)];
+            [self.homePlayerName2PopUpButton setEnabled:(NO)];
+            [self.offenseDoesWhat2PopUpButton setEnabled:(NO)];
+            
+
+
 
 
 }
@@ -269,6 +274,9 @@
             [self.defenseDoesWhatPopUpButton setEnabled:(NO)];
             [self.awayPlayerName2PopUpButton setEnabled:(NO)];
             [self.offenseDoesWhatPopUpButton setEnabled:(NO)];
+            [self.homePlayerName2PopUpButton setEnabled:(NO)];
+            [self.offenseDoesWhat2PopUpButton setEnabled:(NO)];
+
 
 //            NSArray *stealArray = @[[self.offenseDoesWhat objectAtIndex:3]];
 //            [UIUtils initPopUpButton:self.offenseDoesWhatPopUpButton selections:stealArray defaultIndex:0];
@@ -294,6 +302,9 @@
             [self.challengeTypePopUpButton setEnabled:(YES)];
             [UIUtils initPopUpButton:self.callAfterReviewPopUpButton selections:self.call defaultIndex:0];
             [UIUtils initPopUpButton:self.callOnFieldPopUpButton selections:self.call defaultIndex:0];
+            [self.homePlayerName2PopUpButton setEnabled:(NO)];
+            [self.offenseDoesWhat2PopUpButton setEnabled:(NO)];
+
 
 
             [self.playVariation setEnabled:(NO)];
@@ -311,6 +322,9 @@
             [UIUtils initPopUpButton:self.playVariation selections:self.playTagVariation defaultIndex:0];
             [UIUtils initPopUpButton:self.callAfterReviewPopUpButton selections:self.call defaultIndex:0];
             [UIUtils initPopUpButton:self.callOnFieldPopUpButton selections:self.call defaultIndex:0];
+            [self.homePlayerName2PopUpButton setEnabled:(NO)];
+            [self.offenseDoesWhat2PopUpButton setEnabled:(NO)];
+
 
 
 
@@ -331,6 +345,9 @@
             [self.awayPlayerNamePopUpButton setEnabled:NO];
             [self.awayPlayerName2PopUpButton setEnabled:NO];
             [self.whoChallengedPopUpButton setEnabled:NO];
+            [self.homePlayerName2PopUpButton setEnabled:(NO)];
+            [self.offenseDoesWhat2PopUpButton setEnabled:(NO)];
+
 
             [UIUtils initPopUpButton:self.callAfterReviewPopUpButton selections:self.callAfterHomeRun defaultIndex:0];
             [UIUtils initPopUpButton:self.callOnFieldPopUpButton selections:self.callAfterHomeRun defaultIndex:0];
@@ -352,6 +369,9 @@
             [self.awayPlayerNamePopUpButton setEnabled:NO];
             [self.awayPlayerName2PopUpButton setEnabled:NO];
             [self.whoChallengedPopUpButton setEnabled:NO];
+            [self.homePlayerName2PopUpButton setEnabled:(NO)];
+            [self.offenseDoesWhat2PopUpButton setEnabled:(NO)];
+
             
             [UIUtils initPopUpButton:self.callAfterReviewPopUpButton selections:self.callAfterHomeRun defaultIndex:0];
             [UIUtils initPopUpButton:self.callOnFieldPopUpButton selections:self.callAfterHomeRun defaultIndex:0];
@@ -378,6 +398,24 @@
 
 
         }
+        
+        if ([selectedString isEqualTo:@"Hit By Pitch"]) {
+            [self enableAll];
+            NSString *resourcesBasePath = [[NSBundle mainBundle] resourcePath];
+            
+            NSMutableString *emailTemplateString = [NSString stringWithContentsOfFile:[resourcesBasePath stringByAppendingString:@"/HitByPitch.txt"]];
+            self.dictionaryForTemplate.templateText = emailTemplateString;
+            [self.challengeTypePopUpButton setEnabled:(YES)];
+            [UIUtils initPopUpButton:self.callAfterReviewPopUpButton selections:self.callAfterHitByPitch defaultIndex:0];
+            [UIUtils initPopUpButton:self.callOnFieldPopUpButton selections:self.callAfterHitByPitch defaultIndex:0];
+            [self.homePlayerName2PopUpButton setEnabled:(NO)];
+            [self.offenseDoesWhat2PopUpButton setEnabled:(NO)];
+            
+            
+            
+            [self.playVariation setEnabled:(NO)];
+        }
+
         if ([selectedString isEqualTo:@"Fair/Foul"]) {
             [self enableAll];
 
@@ -390,6 +428,9 @@
             [self.playVariation setEnabled:(NO)];
             [UIUtils initPopUpButton:self.callAfterReviewPopUpButton selections:self.callAfterFairFoul defaultIndex:0];
             [UIUtils initPopUpButton:self.callOnFieldPopUpButton selections:self.callAfterFairFoul defaultIndex:0];
+            [self.homePlayerName2PopUpButton setEnabled:(NO)];
+            [self.offenseDoesWhat2PopUpButton setEnabled:(NO)];
+
 
 
         }
@@ -406,6 +447,9 @@
             [self.playVariation setEnabled:(NO)];
             [UIUtils initPopUpButton:self.callAfterReviewPopUpButton selections:self.callAfterCatch defaultIndex:0];
             [UIUtils initPopUpButton:self.callOnFieldPopUpButton selections:self.callAfterCatch defaultIndex:0];
+            [self.homePlayerName2PopUpButton setEnabled:(NO)];
+            [self.offenseDoesWhat2PopUpButton setEnabled:(NO)];
+
 
 
         }
@@ -727,6 +771,8 @@
     [self.offenseDoesWhatPopUpButton setEnabled:(YES)];
     [self.offenseDoesWhat2PopUpButton setEnabled:(YES)];
     [self.defenseDoesWhat2PopUpButton setEnabled:(YES)];
+    [self.homePlayerName2PopUpButton setEnabled:(YES)];
+    [self.offenseDoesWhat2PopUpButton setEnabled:(YES)];
 
 
 
