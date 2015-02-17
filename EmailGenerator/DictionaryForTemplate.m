@@ -15,14 +15,9 @@
 {
     
     NSString *emailText = [self.templateText copy];
-        
     
-//    NSString *newText = nil;
-//    
-//    
-//    newText = [infoDict objectForKey:@"playtype"];
-//    if (newText != nil)
-//    {
+    
+    
     
 //    NSMutableDictionary *lookADict = [[NSMutableDictionary alloc]init];
 //    NSDictionary *attributes = @{
@@ -139,7 +134,7 @@
 
 -(NSString*) makeSubject:(NSDictionary *)infoDict{
     NSString *emailSubject = [NSString alloc];
-    emailSubject = @"Replay Review Alert - $CHALLENGETYPE - $GAME- $INNING - $PLAYTYPE at $PLAYLOCATION ruled $CALLAFTER ($OUTCOME)";
+    emailSubject = @"Replay Review Alert - $CHALLENGETYPE - $GAME- $INNING - $PLAYTYPE at $PLAYLOCATION ruled $CALLONFIELD ($OUTCOME)";
 
    emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$CHALLENGETYPE" withString:[infoDict objectForKey:@"challengetype" ]];
     emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$GAME" withString:[infoDict objectForKey:@"game" ]];
@@ -149,7 +144,7 @@
     emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$PLAYLOCATION" withString:[infoDict objectForKey:@"playlocation" ]];
     
     
-    emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$CALLAFTER" withString:[infoDict objectForKey:@"callafter" ]];
+    emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$CALLONFIELD" withString:[infoDict objectForKey:@"callonfield" ]];
     
     emailSubject = [emailSubject stringByReplacingOccurrencesOfString:@"$OUTCOME" withString:[infoDict objectForKey:@"outcome" ]];
 
