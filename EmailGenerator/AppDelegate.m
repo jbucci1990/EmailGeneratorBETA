@@ -158,10 +158,10 @@
     // Insert code here to initialize your application
     // Bringing in the first Template
     NSString *resourcesBasePath = [[NSBundle mainBundle] resourcePath];
-
+//
     NSMutableString *emailTemplateString = [NSString stringWithContentsOfFile:[resourcesBasePath stringByAppendingString:@"/emailTemplate.txt"]];
     NSMutableString *emailSubjectString = [NSString stringWithContentsOfFile:[resourcesBasePath stringByAppendingString:@"/EmailSubject.txt"]];
-
+//    NSMutableString *emailTemplateString = [[NSMutableString alloc]initWithString:@"Welcome to the App"];
     
     //Setting up the Method for replacing strings in Templates
 
@@ -722,10 +722,10 @@
 
 -(void)updateOutput
 {
-    NSString *emailString = [self.dictionaryForTemplate makeEmail:self.currentStateDict];
+    NSMutableAttributedString *emailString = [self.dictionaryForTemplate makeEmail:self.currentStateDict];
     NSString *subjectString = [self.dictionaryForTemplate makeSubject:self.currentStateDict];
-    [self.emailTextView setString:emailString];
-    [self.textField setStringValue:subjectString];
+    [self.emailTextView.textStorage setAttributedString: emailString];
+    [self.subjectTextField setStringValue:subjectString];
 }
 
 
@@ -844,6 +844,7 @@
         [UIUtils initPopUpButton:self.defenseDoesWhat2PopUpButton selections:self.defenseDoesWhat defaultIndex:0];
         
         [self.emailTextView setString:@""];
+        [self.subjectTextField setStringValue:@""];
         [self setDefaultLines];
 
 

@@ -10,7 +10,7 @@
 
 
 @interface DictionaryForTemplate : NSObject
--(NSString*) makeEmail:(NSDictionary*)infoDict;
+-(NSMutableAttributedString*) makeEmail:(NSDictionary*)infoDict;
 -(NSString*) makeSubject:(NSDictionary*)infoDict;
 
 

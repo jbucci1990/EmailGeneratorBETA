@@ -40,7 +40,9 @@
 @property (weak) IBOutlet NSPopUpButton *offenseDoesWhat2PopUpButton;
 @property (weak) IBOutlet NSPopUpButton *defenseDoesWhat2PopUpButton;
 
-@property (strong) IBOutlet NSTextView *emailTextView;
+@property (unsafe_unretained) IBOutlet NSTextView *emailTextView;
+@property (weak) IBOutlet NSTextField *subjectTextField;
+
 
 @property (retain) DictionaryForTemplate *dictionaryForTemplate;
 
@@ -77,7 +79,6 @@
 
 
 
-@property (weak) IBOutlet NSTextField *textField;
 
 
 
