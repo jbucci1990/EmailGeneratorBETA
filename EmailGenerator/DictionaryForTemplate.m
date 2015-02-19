@@ -87,17 +87,22 @@
 //
     for (NSString *key in lookADict)
     {
-        NSUInteger length = [convertTemplate length];
-
         NSString *value = [lookADict objectForKey:key];
+
         if ([convertTemplate.string rangeOfString:value].location == NSNotFound) {
             NSLog(@" %@ not found in template", value);}
         else {
+//        NSUInteger length = [convertTemplate length];
 
-        NSRange testRange = [convertTemplate.string rangeOfString:value];
-        [convertTemplate replaceCharactersInRange:testRange withAttributedString: [coloredDict objectForKey:key]];
+        NSRange range = [convertTemplate.string rangeOfString:value];
+            while(range.location != NSNotFound)
+            {
+                [convertTemplate replaceCharactersInRange:range withAttributedString: [coloredDict objectForKey:key]];
+                range = [convertTemplate.string rangeOfString:value];
+                                         }
 
         
+            
         }}
     
     
