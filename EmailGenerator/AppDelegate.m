@@ -50,6 +50,18 @@
                         @"T7", @"B7",
                         @"T8", @"B8",
                         @"T9", @"B9"];
+    
+    self.extraInnings = @[@"  ",
+                          @"T10", @"B10",
+                          @"T11", @"B11",
+                          @"T12", @"B12",
+                          @"T13", @"B13",
+                          @"T14", @"B14",
+                          @"T15", @"B15",
+                          @"T16", @"B16",
+                          @"T17", @"B17",
+                          @"T18", @"B18",
+                          @"T19", @"B19"];
    self.playLocation = @[@" ",
                               @"1B",
                               @"2B",
@@ -88,6 +100,7 @@
     self.callAfterHomeRun = @[@"  ", @"home run", @"not a home run"];
     self.callAfterFairFoul = @[@"  ", @"fair", @"foul"];
     self.callAfterHitByPitch = @[@"  ", @"hit by pitch", @"not hit by pitch"];
+    self.callAFterViolation = @[@"  ", @"Violation of Rule 7.13", @"No Violation of Rule 7.13"];
     self.runnersOnBefore = @[@"  ",
                                  @"No runners on",
                                  @"runner on 1B",
@@ -97,6 +110,18 @@
                                  @"runners on 1B and 3B",
                                  @"runners on 2B and 3B",
                                  @"bases Loaded"];
+    
+    self.runnersOnAfter = @[@"  ",
+                             @"No runners on",
+                             @"runner on 1B",
+                             @"runner on 2B",
+                             @"runner on 3B",
+                             @"runners on 1B and 2B",
+                             @"runners on 1B and 3B",
+                             @"runners on 2B and 3B",
+                             @"bases Loaded",
+                            @"end of inning"];
+
     
     self.washNationals = @[@"  ", @"1B - Ryan Zimmerman", @"2B - Danny Espinosa", @"3B - Anthony Rendon", @"SS - Ian Desmond", @"LF -Bryce Harper", @"CF - Denard Span", @"RF - Jayson Werth", @"C - Wilson Ramos", @"P - Max Scherzer"];
     
@@ -148,7 +173,7 @@
     [UIUtils initPopUpButton:self.callAfterReviewPopUpButton selections:self.call defaultIndex:0];
     [UIUtils initPopUpButton:self.outcomePopUpButton selections:self.outcome defaultIndex:0];
     [UIUtils initPopUpButton:self.outsAfterPopUpButton selections:self.outsAfter defaultIndex:0];
-    [UIUtils initPopUpButton:self.runnersOnAfterPopUpButton selections:self.runnersOnBefore defaultIndex:0];
+    [UIUtils initPopUpButton:self.runnersOnAfterPopUpButton selections:self.runnersOnAfter defaultIndex:0];
     [UIUtils initPopUpButton:self.offenseDoesWhat2PopUpButton selections:self.offenseDoesWhat defaultIndex:0];
     [UIUtils initPopUpButton:self.defenseDoesWhat2PopUpButton selections:self.defenseDoesWhat defaultIndex:0];
     
@@ -232,6 +257,8 @@
 #define OUTSAFTER_TAG 32
 #define RUNNERSAFTER_TAG -1
 #define RESET_TAG 60
+#define EXTRAINNINGS_TAG 61
+#define COPYBUTTON_TAG 62
 
 -(IBAction)popUpClicked:(id)sender
 {
@@ -369,6 +396,15 @@
             
             NSMutableString *emailTemplateString = [NSString stringWithContentsOfFile:[resourcesBasePath stringByAppendingString:@"/Potential713.txt"]];
             self.dictionaryForTemplate.templateText = emailTemplateString;
+            [self.challengeTypePopUpButton setEnabled:(NO)];
+            [self.playVariation setEnabled:(NO)];
+            [self.whoChallengedPopUpButton setEnabled:NO];
+            [UIUtils initPopUpButton:self.callAfterReviewPopUpButton selections:self.callAFterViolation defaultIndex:0];
+            [UIUtils initPopUpButton:self.callOnFieldPopUpButton selections:self.callAFterViolation defaultIndex:0];
+            
+
+
+
            
             
 
@@ -474,8 +510,7 @@
             NSArray *atlBalManagers = @[@"  ", @"ATL Fredi Gonzalez", @"BAL Buck Showalter"];
             [UIUtils initPopUpButton:self.whoChallengedPopUpButton selections:atlBalManagers defaultIndex:0];
             
-
-
+    
             
         }
         if ([selectedString isEqualTo:@"WAS/LAD"]) {
@@ -720,7 +755,7 @@
 
    }
 
--(void)updateOutput
+-(void)updateOutput   // UPDATES TEMPLATE AFTER EACH BUTTON CLICK
 {
     NSMutableAttributedString *emailString = [self.dictionaryForTemplate makeEmail:self.currentStateDict];
     NSString *subjectString = [self.dictionaryForTemplate makeSubject:self.currentStateDict];
@@ -730,7 +765,7 @@
 
 
 
--(void)enableAll
+-(void)enableAll   // ENABLES ALL BUTTON TO ACTIVE
 {
     [self.playVariation setEnabled:(YES)];
     [self.playTypeOptionsPopUpButton setEnabled:(YES)];
@@ -846,11 +881,30 @@
         [self.emailTextView setString:@""];
         [self.subjectTextField setStringValue:@""];
         [self setDefaultLines];
+        [self.extraInningCheckbox setState:0];
 
 
         
 
 }
-
+    if (tag == EXTRAINNINGS_TAG)
+    {
+        if ([self.extraInningCheckbox state] == NSOnState) {
+        [UIUtils initPopUpButton:self.inningPopUpButton selections:self.extraInnings defaultIndex:0];
+        }
+        else{
+            
+            [UIUtils initPopUpButton:self.inningPopUpButton selections:self.inning defaultIndex:0];
+        }
+        
+    }
+    
+     if (tag == COPYBUTTON_TAG)
+     {
+         [[NSPasteboard generalPasteboard] clearContents];
+         [[NSPasteboard generalPasteboard] setString: self.emailTextView.string  forType:NSStringPboardType];
+         
+     }
+    
 }
 @end

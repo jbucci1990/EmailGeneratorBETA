@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EmailGenerator/DictionaryForTemplate.m"
-            timestampString = "446068843.927135"
+            timestampString = "446070607.277296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "-makeEmail:"
             landmarkType = "5">
             <Locations>

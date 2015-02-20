@@ -44,6 +44,10 @@
 @property (weak) IBOutlet NSTextField *subjectTextField;
 
 
+@property (weak) IBOutlet NSButton *extraInningCheckbox;
+
+
+
 @property (retain) DictionaryForTemplate *dictionaryForTemplate;
 
 @property (retain) NSMutableDictionary *currentStateDict;
@@ -55,6 +59,7 @@
 @property (retain) NSArray *callAfterFairFoul;
 @property (retain) NSArray *callAfterHitByPitch;
 @property (retain) NSArray *call;
+@property (retain) NSArray *callAFterViolation;
 @property (retain) NSArray *teams;
 @property (retain) NSArray *teams2;
 
@@ -63,6 +68,7 @@
 @property (retain) NSArray *playType;
 @property (retain) NSArray *game;
 @property (retain) NSArray *inning;
+@property (retain) NSArray *extraInnings;
 @property (retain) NSArray *playLocation;
 @property (retain) NSArray *offenseDoesWhat;
 @property (retain) NSArray *defenseDoesWhat;
@@ -71,6 +77,7 @@
 
 @property (retain) NSArray *outsAfter;
 @property (retain) NSArray *runnersOnBefore;
+@property (retain) NSArray *runnersOnAfter;
 
 
 

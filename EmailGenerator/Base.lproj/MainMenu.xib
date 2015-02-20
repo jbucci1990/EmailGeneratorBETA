@@ -27,6 +27,7 @@
                 <outlet property="defensiveDoesWhat2PopUpButton" destination="XMl-RQ-zXb" id="m3c-3h-xaO"/>
                 <outlet property="doWhatPopUpButton" destination="OSx-a7-LhQ" id="net-9B-svE"/>
                 <outlet property="emailTextView" destination="KdR-8H-0N8" id="1bA-ee-MZg"/>
+                <outlet property="extraInningCheckbox" destination="VpZ-4a-Uri" id="yh2-s9-JhO"/>
                 <outlet property="gameTypePopUpButton" destination="6KO-Xt-OXb" id="dwY-Or-C4b"/>
                 <outlet property="homePlayerName" destination="rUZ-or-CLn" id="8cB-Uh-qBe"/>
                 <outlet property="homePlayerName2PopUpButton" destination="VMj-0a-Huf" id="c5q-2t-Kxl"/>
@@ -2200,6 +2201,26 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button fixedFrame="YES" tag="61" translatesAutoresizingMaskIntoConstraints="NO" id="VpZ-4a-Uri">
+                        <rect key="frame" x="290" y="429" width="22" height="18"/>
+                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="wp8-Aj-hOb">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickButton:" target="Voe-Tx-rLC" id="S7D-QK-z6X"/>
+                        </connections>
+                    </button>
+                    <button fixedFrame="YES" tag="62" translatesAutoresizingMaskIntoConstraints="NO" id="z39-vi-eZi">
+                        <rect key="frame" x="706" y="297" width="86" height="25"/>
+                        <buttonCell key="cell" type="square" title="COPY" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yd5-2l-CiJ">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clickButton:" target="Voe-Tx-rLC" id="Kfy-Ak-rvL"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1220.5" y="1103.5"/>
