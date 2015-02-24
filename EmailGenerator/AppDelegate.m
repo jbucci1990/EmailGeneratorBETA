@@ -744,6 +744,8 @@
         {
         [self.currentStateDict setObject:selectedString forKey:@"callonfield"];
         NSLog([self.currentStateDict valueForKey:@"callonfield"]);
+            [self compareCalls];
+
 
             
         }
@@ -758,6 +760,8 @@
         {
         [self.currentStateDict setObject:selectedString forKey:@"callafter"];
         NSLog([self.currentStateDict valueForKey:@"callafter"]);
+            [self compareCalls];
+
 
             
         }
@@ -765,6 +769,7 @@
         {
         [self.currentStateDict setObject:selectedString forKey:@"outcome"];
         NSLog([self.currentStateDict valueForKey:@"outcome"]);
+
 
             
         }
@@ -788,6 +793,7 @@
  
 
     [self updateOutput];
+    [self allDone];
 
 
     
@@ -869,7 +875,44 @@
 
 }
 
+-(void)compareCalls
 
+
+{
+    
+    NSLog(@"compareCalls initiated");
+    if ([[self.currentStateDict objectForKey:@"callonfield" ] isEqualToString:([self.currentStateDict objectForKey:@"callafter"])]) {
+        NSArray *temporaryOutome = [[NSArray alloc]initWithArray:self.outcome];
+        temporaryOutome = [temporaryOutome subarrayWithRange:NSMakeRange(0,3)];
+        
+        [UIUtils initPopUpButton:self.outcomePopUpButton selections:temporaryOutome defaultIndex:0];
+    }
+    else
+    {
+      NSMutableArray  *temporaryOutcome2 = [[NSMutableArray alloc]initWithArray:self.outcome];
+        [temporaryOutcome2 removeObjectAtIndex:1];
+        [temporaryOutcome2 removeObjectAtIndex:1];
+        [UIUtils initPopUpButton:self.outcomePopUpButton selections:temporaryOutcome2 defaultIndex:0];
+
+    }
+    
+    
+}
+
+-(void) allDone
+
+{
+    if ([[self.currentStateDict objectForKey:@"outcome"]  isEqual: @"Stands"]) {
+        NSLog(@"change color");
+        [self.allDoneColorWell setColor: [NSColor colorWithDeviceRed:0 green:.6 blue:0 alpha:1]];
+    }
+    else
+    {
+        NSLog(@"OH WHY ISNT THIS WORKING");
+        
+    }
+    
+}
 - (IBAction)clickButton:(id)sender {
     
     int tag = [sender tag];

@@ -86,7 +86,7 @@
 
 
 
-
+@property (weak) IBOutlet NSColorWell *allDoneColorWell;
 
 
 

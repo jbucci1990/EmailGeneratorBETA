@@ -54,6 +54,8 @@
     NSMutableDictionary *coloredDict = [[NSMutableDictionary alloc]init];
 //
     for (NSString *key in infoDict) {
+        
+        
         NSDictionary *attributes = @{
                                      NSForegroundColorAttributeName :  [NSColor colorWithDeviceRed:0 green:.6 blue:0 alpha:1]
                                      ,
@@ -66,6 +68,7 @@
 
 //
         NSString *value = [infoDict objectForKey:key];
+        
         NSMutableAttributedString *colored = [[NSMutableAttributedString alloc] initWithString:value];
         if ([colored.string rangeOfString:@"_"].location == NSNotFound) {
 
