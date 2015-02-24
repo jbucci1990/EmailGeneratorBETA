@@ -197,6 +197,16 @@
     self.currentStateDict = [NSMutableDictionary new];
     
     
+//    
+//    if ([self.callOnFieldPopUpButton selectedItem] == [self.callAfterReviewPopUpButton selectedItem] ) {
+//        NSLog(@"Working as inteneded");
+//        
+//        [self.outcomePopUpButton setAutoenablesItems:NO];
+//        [[self.outcomePopUpButton itemAtIndex:2] setEnabled:(NO)];
+//    }
+
+    
+    
     // Creating the currentState Dict Defaults
     
     
@@ -396,9 +406,7 @@
             
             NSMutableString *emailTemplateString = [NSString stringWithContentsOfFile:[resourcesBasePath stringByAppendingString:@"/Potential713.txt"]];
             self.dictionaryForTemplate.templateText = emailTemplateString;
-            [self.challengeTypePopUpButton setEnabled:(NO)];
             [self.playVariation setEnabled:(NO)];
-            [self.whoChallengedPopUpButton setEnabled:NO];
             [UIUtils initPopUpButton:self.callAfterReviewPopUpButton selections:self.callAFterViolation defaultIndex:0];
             [UIUtils initPopUpButton:self.callOnFieldPopUpButton selections:self.callAFterViolation defaultIndex:0];
             
@@ -427,10 +435,21 @@
             [UIUtils initPopUpButton:self.callOnFieldPopUpButton selections:self.callAfterHitByPitch defaultIndex:0];
             [self.homePlayerName2PopUpButton setEnabled:(NO)];
             [self.offenseDoesWhat2PopUpButton setEnabled:(NO)];
+            [self.awayPlayerName2PopUpButton setEnabled:NO];
+            [self.defenseDoesWhat2PopUpButton setEnabled:NO];
+            [self.defenseDoesWhatPopUpButton setEnabled:NO];
+            [self.offenseDoesWhatPopUpButton setEnabled:NO];
+
+
+
             
             
             
             [self.playVariation setEnabled:(NO)];
+            
+            
+//            [self.inningPopUpButton setAutoenablesItems:NO];
+//            [[self.inningPopUpButton itemAtIndex:1] setEnabled:(NO)];
         }
 
         if ([selectedString isEqualTo:@"Fair/Foul"]) {
@@ -509,6 +528,16 @@
             [UIUtils initPopUpButton:self.defenseTeamPopUpButton selections:self.teams2 defaultIndex:0];
             NSArray *atlBalManagers = @[@"  ", @"ATL Fredi Gonzalez", @"BAL Buck Showalter"];
             [UIUtils initPopUpButton:self.whoChallengedPopUpButton selections:atlBalManagers defaultIndex:0];
+            [UIUtils initPopUpButton:self.homePlayerNamePopUpButton selections:self.emptyArray defaultIndex:0];
+            [UIUtils initPopUpButton:self.awayPlayerNamePopUpButton selections:self.emptyArray defaultIndex:0];
+            [UIUtils initPopUpButton:self.awayPlayerName2PopUpButton selections:self.emptyArray defaultIndex:0];
+            [self.currentStateDict setObject:@"___________" forKey:@"offensiveplayer"];
+            [self.currentStateDict setObject:@"___________" forKey:@"defensiveplayer"];
+            [self.currentStateDict setObject:@"___________" forKey:@"defensiveplayer2"];
+
+
+            
+
             
     
             
@@ -516,6 +545,18 @@
         if ([selectedString isEqualTo:@"WAS/LAD"]) {
             [UIUtils initPopUpButton:self.offenseTeamPopUpButton selections:self.teams defaultIndex:0];
             [UIUtils initPopUpButton:self.defenseTeamPopUpButton selections:self.teams defaultIndex:0];
+            [UIUtils initPopUpButton:self.whoChallengedPopUpButton selections: self.whoChallenging defaultIndex:0];
+            [UIUtils initPopUpButton:self.homePlayerNamePopUpButton selections:self.emptyArray defaultIndex:0];
+            [UIUtils initPopUpButton:self.awayPlayerNamePopUpButton selections:self.emptyArray defaultIndex:0];
+            [UIUtils initPopUpButton:self.awayPlayerName2PopUpButton selections:self.emptyArray defaultIndex:0];
+            [self.currentStateDict setObject:@"___________" forKey:@"offensiveplayer"];
+            [self.currentStateDict setObject:@"___________" forKey:@"defensiveplayer"];
+            [self.currentStateDict setObject:@"___________" forKey:@"defensiveplayer2"];
+
+
+
+
+
             
             
             
@@ -749,8 +790,6 @@
     [self updateOutput];
 
 
-
-
     
 
    }
@@ -800,7 +839,7 @@
 
 
 
--(void)setDefaultLines
+-(void)setDefaultLines    // SETS LINES BACK TO DEFAULT
 {
     [self.currentStateDict setObject:@"________" forKey:@"playtype"];
     //    [self.currentStateDict setObject: attrstr forKey:@"challengetype"];
@@ -837,11 +876,11 @@
   
     
     
-    if (tag == RESET_TAG)
+    if (tag == RESET_TAG)   /// RESETS ALL FIELDS
     {
         [self enableAll];
 
-        NSLog(@"YA I DID IT");
+//        NSLog(@"YA I DID IT");
         
         [UIUtils initPopUpButton:self.playTypeOptionsPopUpButton selections:self.playType defaultIndex:0];
         [UIUtils initPopUpButton:self.playVariation selections:self.emptyArray defaultIndex:0];
@@ -887,7 +926,7 @@
         
 
 }
-    if (tag == EXTRAINNINGS_TAG)
+    if (tag == EXTRAINNINGS_TAG)   // SWITCHES INNING DROPDOWN TO EXTRA INNINGS
     {
         if ([self.extraInningCheckbox state] == NSOnState) {
         [UIUtils initPopUpButton:self.inningPopUpButton selections:self.extraInnings defaultIndex:0];
@@ -899,7 +938,7 @@
         
     }
     
-     if (tag == COPYBUTTON_TAG)
+     if (tag == COPYBUTTON_TAG)   // COPYS THE TEXT IN EMAILTEXTVIEW TO OSX CLIPBOARD
      {
          [[NSPasteboard generalPasteboard] clearContents];
          [[NSPasteboard generalPasteboard] setString: self.emailTextView.string  forType:NSStringPboardType];
