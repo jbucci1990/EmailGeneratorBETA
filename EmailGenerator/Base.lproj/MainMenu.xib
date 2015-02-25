@@ -14,7 +14,6 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="allDoneColorWell" destination="cpw-zB-8eB" id="Cie-eP-5AP"/>
                 <outlet property="awayPlayerDoesWhat2PopUpButton" destination="XMl-RQ-zXb" id="Vmh-dH-vfe"/>
                 <outlet property="awayPlayerName2PopUpButton" destination="8oJ-TJ-MHD" id="g2T-ho-mhc"/>
                 <outlet property="awayPlayerNamePopUpButton" destination="dky-fu-XjA" id="8r7-7W-hgI"/>
@@ -2222,10 +2221,6 @@
                             <action selector="clickButton:" target="Voe-Tx-rLC" id="Kfy-Ak-rvL"/>
                         </connections>
                     </button>
-                    <colorWell fixedFrame="YES" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpw-zB-8eB">
-                        <rect key="frame" x="290" y="482" width="23" height="23"/>
-                        <color key="color" red="1" green="0.011788656142404319" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </colorWell>
                 </subviews>
             </view>
             <point key="canvasLocation" x="1220.5" y="1103.5"/>

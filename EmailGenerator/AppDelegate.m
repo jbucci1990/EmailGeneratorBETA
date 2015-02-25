@@ -579,6 +579,24 @@
     {
         [self.currentStateDict setObject:selectedString forKey:@"outsbefore"];
         NSLog([self.currentStateDict valueForKey:@"outsbefore"]);
+        NSMutableArray *oneOutBefore = [[NSMutableArray alloc]initWithArray:self.outsAfter];
+        [oneOutBefore removeObjectAtIndex:1];
+        NSMutableArray *twoOutBefore = [[NSMutableArray alloc]initWithArray:self.outsAfter];
+        [twoOutBefore removeObjectAtIndex:(1)];
+        [twoOutBefore removeObjectAtIndex:(1)];
+
+        
+        
+        
+        if ([selectedString isEqualToString:@"0"]) {
+            [UIUtils initPopUpButton:self.outsAfterPopUpButton selections:self.outsAfter defaultIndex:0];
+        }
+        if ([selectedString isEqualToString:@"1"]) {
+            [UIUtils initPopUpButton:self.outsAfterPopUpButton selections:oneOutBefore defaultIndex:0];
+        }
+        if ([selectedString isEqualToString:@"2"]) {
+            [UIUtils initPopUpButton:self.outsAfterPopUpButton selections:twoOutBefore defaultIndex:0];
+        }
 
         
     }
@@ -793,7 +811,6 @@
  
 
     [self updateOutput];
-    [self allDone];
 
 
     
@@ -899,20 +916,20 @@
     
 }
 
--(void) allDone
-
-{
-    if ([[self.currentStateDict objectForKey:@"outcome"]  isEqual: @"Stands"]) {
-        NSLog(@"change color");
-        [self.allDoneColorWell setColor: [NSColor colorWithDeviceRed:0 green:.6 blue:0 alpha:1]];
-    }
-    else
-    {
-        NSLog(@"OH WHY ISNT THIS WORKING");
-        
-    }
-    
-}
+//-(void) allDone
+//
+//{
+//    if ([[self.currentStateDict objectForKey:@"outcome"]  isEqual: @"Stands"]) {
+//        NSLog(@"change color");
+//        [self.allDoneColorWell setColor: [NSColor colorWithDeviceRed:0 green:.6 blue:0 alpha:1]];
+//    }
+//    else
+//    {
+//        NSLog(@"OH WHY ISNT THIS WORKING");
+//        
+//    }
+//
+//}
 - (IBAction)clickButton:(id)sender {
     
     int tag = [sender tag];
